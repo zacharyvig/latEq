@@ -15,41 +15,9 @@ if (!requireNamespace("devtools", quietly = TRUE)) {
 # Install latEq from GitHub
 devtools::install_github("zacharyvig/latEq")
 ```
-
-## Usage
-
-```R
-library(latEq)
-
-latEq(lm(mpg ~ wt + hp, data = mtcars))
-```
-
-## Parameters
-
-- `.lm`: A linear model object (lm()).
-- `sub.i`: Logical. If TRUE, subscript "i" will be added to the dependent variable. Default is TRUE.
-- `add.hat`: Logical. If TRUE, a hat will be added to the dependent variable. Default is FALSE.
-- `num.coef`: Logical. If TRUE, numeric coefficients will be used in the equation. Default is TRUE.
-- `round.to`: Numeric. The number of decimal places to round coefficients to. Default is 3.
-- `dep.var`: Character. The symbol for the dependent variable. Default is "y".
-- `ind.var`: Character. The symbol for the independent variable. Use "NAME" for variable names. Default is "x".
-- `cat.var`: Character. The symbol for categorical variables. Default is "\(\gamma\)".
-- `add`: Character vector specifying additional elements to add to the equation. Default is NULL.
-
 ## Details
 
-The function supports various options for formatting the equation, including adding subscripts, hats, using numeric coefficients, and including additional elements specified by the add parameter.
-
-The .var parameters (dep.var, ind.var, cat.var) can be set to "NAME" to use the actual variable names instead of symbols in the equation.
-
-The add parameter can take values such as:
-- "error": Adds the error term to the equation. For example, \(y = mx + b + \epsilon_i\).
-- "error2": Similar to "error," but includes additional information about the error term, specifying that it follows a normal distribution. For example, \(y = mx + b + \epsilon_i, \epsilon_i \sim \mathcal{N}(0, \sigma^2)\).
-- "range": Appends a range condition to the equation, indicating that the equation is valid for a specific range of values of "i". For example, \(y = mx + b, 1 \le i \le 30\).
-- "range2": Similar to "range," but the range condition is based on the length of the fitted values of the linear model. For example, \(y = mx + b, 1 \le i \le nn\).
-- "legend": Generates a legend for the equation, providing information about the symbols used in the equation. For example, \(y = \code{dep.var} + \beta_1 \cdot \code{ind.var} + \beta_2 \cdot \gamma + \epsilon_i\).
-
-Note that in order for R to read LaTeX symbols, you must use a double slash, e.g., \\beta.
+The `latEq` function is designed to simplify the process of converting linear regression models into LaTeX equation representations. This function takes a linear model object created using R's lm() function as input and generates a formatted LaTeX equation based on the model's coefficients, terms, and customizable parameters. Users can control various aspects of the equation presentation, such as adding subscripts, including hats on the dependent variable, using numeric coefficients, and introducing additional elements like error terms and range conditions. Additionally, the function allows users to choose between symbolic variable representation and actual variable names in the output equation. The resulting LaTeX equation is suitable for use in academic papers, reports, or presentations, providing a convenient and customizable tool for researchers and statisticians working with linear models in R.
 
 ## Examples
 
