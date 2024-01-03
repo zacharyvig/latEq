@@ -13,7 +13,7 @@ if (!requireNamespace("devtools", quietly = TRUE)) {
 }
 
 # Install latEq from GitHub
-devtools::install_github("yourgithubusername/latEq")
+devtools::install_github("zacharyvig/latEq")
 ```
 
 ## Usage
