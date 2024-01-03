@@ -16,6 +16,7 @@ latEq <- function(.lm,
                   add = NULL) {
   # Function implementation...
 }
+```
 
 ## Parameters
 
@@ -46,16 +47,24 @@ latEq <- function(.lm,
 ## Examples
 
 # Example with default parameters
+```R
 latEq(lm(mpg ~ wt + hp, data = mtcars))
+```
 
 # Example with custom parameters
+```R
 latEq(lm(mpg ~ wt + hp, data = mtcars), sub.i = FALSE, add.hat = TRUE, num.coef = FALSE, dep.var = "y", ind.var = "NAME", cat.var = "\\beta")
+```
 
 # Example with error term and range condition
+```R
 latEq(lm(mpg ~ wt + hp, data = mtcars), add = c("error", "range"))
+```
 
 # Example with legend and custom variable names
+```R
 latEq(lm(mpg ~ wt + hp, data = mtcars), add = "legend", dep.var = "Dependent", ind.var = "Independent", cat.var = "Category")
+```
 
 ## Author
 
