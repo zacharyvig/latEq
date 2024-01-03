@@ -1,3 +1,4 @@
+#' Helper functions for latEq function
 #' @noRd
 isIntercept <- function(var) {
   return(var == "(Intercept)")
