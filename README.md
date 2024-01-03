@@ -1,4 +1,4 @@
-# latEq: Generate LaTeX Equation from a Linear Model
+# latEq: Generate a LaTeX Equation from a Linear Model
 
 The `latEq` function takes a linear model object and generates a LaTeX equation representation based on the model's coefficients, terms, and other optional parameters.
 
