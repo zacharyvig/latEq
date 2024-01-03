@@ -17,7 +17,7 @@ latEq <- function(.lm,
   # Function implementation...
 }
 
-Parameters
+## Parameters
 
 # .lm: A linear model object (lm()).
 # sub.i: Logical. If TRUE, subscript "i" will be added to the dependent variable. Default is TRUE.
@@ -29,7 +29,7 @@ Parameters
 # cat.var: Character. The symbol for categorical variables. Default is "\(\gamma\)".
 # add: Character vector specifying additional elements to add to the equation. Default is NULL.
 
-Details
+## Details
 
 # The function supports various options for formatting the equation, including adding subscripts, hats,
 # using numeric coefficients, and including additional elements specified by the add parameter.
@@ -43,7 +43,7 @@ Details
 # - "legend": Generates a legend for the equation, providing information about the symbols used in the equation. This is particularly useful when variable names are used instead of symbols. For example, \(y = \code{dep.var} + \beta_1 \cdot \code{ind.var} + \beta_2 \cdot \gamma + \epsilon_i\).
 # Note that in order for R to read LaTeX symbols, you must use a double slash, e.g., \\beta.
 
-Examples
+## Examples
 
 # Example with default parameters
 latEq(lm(mpg ~ wt + hp, data = mtcars))
@@ -57,10 +57,10 @@ latEq(lm(mpg ~ wt + hp, data = mtcars), add = c("error", "range"))
 # Example with legend and custom variable names
 latEq(lm(mpg ~ wt + hp, data = mtcars), add = "legend", dep.var = "Dependent", ind.var = "Independent", cat.var = "Category")
 
-Author
+## Author
 
 [Zach Vig](https://github.com/zacharyvig)
 
-See Also
+## See Also
 
 [LaTeX Project](https://www.latex-project.org/)
