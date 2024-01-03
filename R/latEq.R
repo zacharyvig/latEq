@@ -25,8 +25,8 @@
 #' \itemize{
 #'   \item "error": Adds the error term to the equation. For example, \eqn{y = mx + b + \epsilon_i}.
 #'   \item "error2": Similar to "error," but includes additional information about the error term, specifying that it follows a normal distribution. For example, \eqn{y = mx + b + \epsilon_i, \epsilon_i \sim \mathcal{N}(0, \sigma^2)}.
-#'   \item "range": Appends a range condition to the equation, indicating that the equation is valid for a specific range of values of ``i''. For example, \eqn{y = mx + b, 1 \le i \le 30}.
-#'   \item "range2": Similar to "range," but the range condition is based on the length of the fitted values of the linear model.
+#'   \item "range": Appends a range condition to the equation, indicating that the equation is valid for a range of values of ``i'' (1 to n). For example, \eqn{y = mx + b, 1 \le i \le n}.
+#'   \item "range2": Similar to "range," but the range condition is based on the length of the fitted values of the linear model. For example, \eqn{y = mx + b, 1 \le i \le 30}.
 #'   \item "legend": Generates a legend for the equation, providing information about the symbols used in the equation. This is particularly useful when variable names are used instead of symbols. For example, \eqn{\code{dep.var} =  \beta_1 \cdot \code{ind.var} + \gamma \cdot \code{cat.var} + \epsilon_i}.
 #' }
 #'
