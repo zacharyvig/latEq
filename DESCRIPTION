@@ -1,12 +1,11 @@
 Package: latEq
 Type: Package
 Title: Generate a LaTeX Equation from a Linear Model
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Version: 0.1.1
+Author: Zach Vig
+Maintainer: Zach Vig <zachvig@unc.edu>
+Description: The latEq function is designed to simplify the process of converting linear regression models into LaTeX equation representations. This function takes a linear model object created using R's lm() function as input and generates a formatted LaTeX equation based on the model's coefficients, terms, and customizable parameters. Users can control various aspects of the equation presentation, such as adding subscripts, including hats on the dependent variable, using numeric coefficients, and introducing additional elements like error terms and range conditions. Additionally, the function allows users to choose between symbolic variable representation and actual variable names in the output equation. The resulting LaTeX equation is suitable for use in academic papers, reports, or presentations, providing a convenient and customizable tool for researchers and statisticians working with linear models in R.
+License: None
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
