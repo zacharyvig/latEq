@@ -39,6 +39,8 @@ latEq(lm(mpg ~ wt + hp, data = mtcars), add = "legend", dep.var = "Dependent", i
 
 [Zach Vig](https://github.com/zacharyvig)
 
+Documentation generated using [ChatGPT](https://chat.openai.com/)
+
 ## See Also
 
 [LaTeX Project](https://www.latex-project.org/)
