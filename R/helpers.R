@@ -43,20 +43,20 @@ findOrder <- function (var) {
 }
 
 #' @noRd
-buildPoly <- function(var, sym.key) {
+buildPoly <- function(var, sym_key) {
   order <- findOrder(var)
   var <- stripVar(var)
-  sym <- sym.key$sym[which(sym.key$var == var)]
+  sym <- sym_key$sym[which(sym_key$var == var)]
   poly <- paste0(sym, "^", order)
   return(poly)
 }
 
 #' @noRd
-symMatch <- function(var, sym.key) {
+symMatch <- function(var, sym_key) {
   if(isPoly(var)) {
-    sym <- buildPoly(var, sym.key)
+    sym <- buildPoly(var, sym_key)
   } else {
-    sym <- sym.key$sym[which(sym.key$var == stripVar(var))]
+    sym <- sym_key$sym[which(sym_key$var == stripVar(var))]
   }
   return(sym)
 }
@@ -76,17 +76,17 @@ gatherFactors <- function(xlevels) {
 }
 
 #' @noRd
-gatherNumericals <- function(terms, fact.vars) {
+gatherNumericals <- function(terms, fact_vars) {
   ii <- which(!terms$is.intercept)
   all.vars <- unique(stripVar(unlist(strsplit(terms[ii,]$vars,"\\:|\\*| \\* "))))
-  num.vars <- setdiff(all.vars, fact.vars)
+  num.vars <- setdiff(all.vars, fact_vars)
   return(stripVar(num.vars))
 }
 
 #' @noRd
-prepVar <- function(vars, var.string, include, sub.i) {
+prepVar <- function(vars, var_string, include, sub_i) {
   if (include) {
-    ss <- c(paste0(var.string, "_{", ifelse(sub.i, "i", ""), 1:length(vars), "}"))
+    ss <- c(paste0(var_string, "_{", ifelse(sub_i, "i", ""), 1:length(vars), "}"))
   } else {
     ss <- NULL
   }
@@ -94,16 +94,16 @@ prepVar <- function(vars, var.string, include, sub.i) {
 }
 
 #' @noRd
-eqTerms <- function(terms, sym.key, incl.int) {
+eqTerms <- function(terms, sym_key, incl_int) {
   N <- nrow(terms)
-  st <- ifelse(incl.int, 2, 1)
+  st <- ifelse(incl_int, 2, 1)
   terms$sym <- NA
   for (i in st:N) {
     term <- terms$vars[i]
     if (isInteraction(term)) {
       term <- strsplit(term,"\\:|\\*| \\* ")[[1]]
     }
-    sym <- sapply(term, symMatch, sym.key)
+    sym <- sapply(term, symMatch, sym_key)
     terms$sym[i] <- paste0(sym, collapse = "")
   }
   return(terms)
