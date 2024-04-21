@@ -77,7 +77,7 @@ gatherFactors <- function(xlevels) {
 
 #' @noRd
 gatherNumericals <- function(terms, fact_vars) {
-  ii <- which(!terms$is.intercept)
+  ii <- which(!terms$is_intercept)
   all.vars <- unique(stripVar(unlist(strsplit(terms[ii,]$vars,"\\:|\\*| \\* "))))
   num.vars <- setdiff(all.vars, fact_vars)
   return(stripVar(num.vars))

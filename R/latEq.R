@@ -61,25 +61,25 @@ latEq <- function(.lm,
                   add = NULL) {
 
 
-  all_vars <- as_character(names(.lm$coef))
+  all_vars <- as.character(names(.lm$coef))
 
-  terms <- data_frame(vars = all_vars,
+  terms <- data.frame(vars = all_vars,
                       coefs = unname(round(.lm$coef,round_to)),
                       is_pos = unname(.lm$coef) > 0,
                       is_intercept = isIntercept(all_vars),
                       is_interaction = isInteraction(all_vars))
 
-  fact_vars <- gatherFactors(.lm$xlevels); incl_fact <- !is_null(fact_vars)
+  fact_vars <- gatherFactors(.lm$xlevels); incl_fact <- !is.null(fact_vars)
   num_vars <- gatherNumericals(terms, fact_vars); incl_num <- length(num_vars) > 0
 
   incl_int <- any(terms$is_intercept)
 
   yvar <- paste0(ifelse(add_hat, "\\widehat{", ""),
-                 ifelse(dep_var == "NAME", paste0("\\verb|", as_character(.lm$terms[[2]]), "|"), dep_var),
+                 ifelse(dep_var == "NAME", paste0("\\verb|", as.character(.lm$terms[[2]]), "|"), dep_var),
                  ifelse(add_hat, "}", ""),
                  ifelse(sub_i, "_i", ""))
 
-  sym_key <- data_frame(var = c(num_vars, fact_vars))
+  sym_key <- data.frame(var = c(num_vars, fact_vars))
 
   if (ind_var == "NAME") {
     sym_key$sym <- c(paste0("\\cdot\\verb|", sym_key$var, ifelse(sub_i,"|_i","|")))
@@ -137,7 +137,7 @@ latEq <- function(.lm,
   }
 
   if ("legend" %in% add) {
-    legend <- paste0("\n", yvar, " = ", paste0("\\verb|", as_character(.lm$terms[[2]]), "|"))
+    legend <- paste0("\n", yvar, " = ", paste0("\\verb|", as.character(.lm$terms[[2]]), "|"))
     n <- nrow(sym_key)
     for (i in 1:n) {
       newline <- paste0(", ", sym_key$sym[i]," = \\verb|", sym_key$var[i], "|")
@@ -146,7 +146,7 @@ latEq <- function(.lm,
     eq <- paste0(eq, legend)
   }
 
-  cat(eq)
+  return(eq)
 
 }
 
